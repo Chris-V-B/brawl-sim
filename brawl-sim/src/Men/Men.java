@@ -13,4 +13,6 @@ public interface Men extends Comparator<Men>{
 	public void removeHp(Integer damage);
 	
 	public Boolean isBad();
+	
+	public Integer getAc();
 }
