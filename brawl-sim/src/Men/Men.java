@@ -7,4 +7,10 @@ public interface Men extends Comparator<Men>{
 	public Integer getInitiative();
 	
 	public Boolean isAlive();
+	
+	public void attack(Men men);
+
+	public void removeHp(Integer damage);
+	
+	public Boolean isBad();
 }
