@@ -10,11 +10,13 @@ import Dice.Dice;
 public class RegularMan implements Men {
 	
 	private Integer hp;
+	private Integer ac;
 	private Integer initiative;
 	private Boolean isBad;
 	
 	public RegularMan(Boolean isBad) {
 		hp = Dice.d20();
+		ac = Dice.d20();
 		initiative = Dice.d20();
 		this.isBad = isBad;
 	} 
@@ -37,7 +39,10 @@ public class RegularMan implements Men {
 
 	@Override
 	public void attack(Men men) {
-		men.removeHp(rollDamage());
+		Integer attackRoll = Dice.d20();
+		if (attackRoll >= men.getAc()) {
+			men.removeHp(rollDamage());
+		}
 	}
 
 	private Integer rollDamage() {
@@ -54,5 +59,11 @@ public class RegularMan implements Men {
 	@Override
 	public Boolean isBad() {
 		return isBad;
+	}
+
+
+	@Override
+	public Integer getAc() {
+		return ac;
 	}
 }
